@@ -394,4 +394,3 @@ DeviceNetworkEvents
 | where DeviceName == "main1-srvr"
 | project TimeGenerated, DeviceName RemoteIP, RemoteUrl
 | order by TimeGenerated asc
----
