@@ -1,7 +1,7 @@
 # Unauthorized Year-End Compensation Data Access
 
 ## Technology Used
-This simulation was done using **Kusto Query Language (KQL)** via **Microsoft Sentinel** Log Analytics
+This simulation was performed using **Kusto Query Language (KQL)** via **Microsoft Sentinel** Log Analytics
 
 ##  Scenario
 
