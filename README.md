@@ -156,6 +156,7 @@ DeviceRegistryEvents
 | order by TimeGenerated asc
 
 ```
+<img width="1825" height="470" alt="image" src="https://github.com/user-attachments/assets/56628fb7-b71e-4f91-a2eb-26a6e81b5193" />
 
 ---
 
@@ -186,7 +187,7 @@ A remote session device has been found to have accessed an employee-related scor
 DeviceFileEvents
 | where DeviceName == "sys1-dept"
 | where FileName contains "Scorecard"
-| project TimeGenerated, InitiatingProcessAccountName, DeviceName, Filename
+| project TimeGenerated, InitiatingProcessAccountName, DeviceName, FileName
 | order by TimeGenerated asc
 
 ```
@@ -224,6 +225,7 @@ DeviceProcessEvents
 | order by TimeGenerated asc
 
 ```
+<img width="1235" height="280" alt="image" src="https://github.com/user-attachments/assets/a785552a-c740-44b6-8065-019bb0f4d0ea" />
 
 ---
 
@@ -235,13 +237,14 @@ Access to finalized year-end bonus file with sensitive-read classification occur
 **Query Used:**
 
 ```kql
-DeviceFileEvents
+DeviceEvents
 | where DeviceName == "sys1-dept"
 | where ActionType contains "Sensitive"
 | project TimeGenerated, ActionType, FileName
 | order by TimeGenerated asc
 
 ```
+<img width="865" height="205" alt="image" src="https://github.com/user-attachments/assets/7266970b-cd22-4ae3-ba87-4b3e151d043e" />
 
 ---
 
@@ -262,6 +265,7 @@ DeviceFileEvents
 | order by TimeGenerated asc
 
 ```
+<img width="1120" height="255" alt="image" src="https://github.com/user-attachments/assets/7f97dc0b-4b19-4bfa-8ee4-190d9566ac57" />
 
 ---
 
@@ -279,6 +283,7 @@ DeviceNetworkEvents
 | order by TimeGenerated asc
 
 ```
+<img width="1592" height="250" alt="image" src="https://github.com/user-attachments/assets/253fd002-9303-4683-9083-ffbfc3daa781" />
 
 ---
 
@@ -299,6 +304,7 @@ DeviceProcessEvents
 | order by TimeGenerated asc
 
 ```
+<img width="1277" height="200" alt="image" src="https://github.com/user-attachments/assets/f4c4c78f-8ef0-424f-a715-f684f0d5c76a" />
 
 ---
 
@@ -310,12 +316,12 @@ Another machine has been compromised based on similar telemtry patterns. The dev
 
 ```kql
 DeviceProcessEvents
-| where DeviceName == "sys1-dept"
 | where ProcessCommandLine has_any ("bonus","review","scorecard")
 | summarize FirstSeen=min(TimeGenerated) by DeviceName
 | order by FirstSeen asc
 
 ```
+<img width="1480" height="177" alt="image" src="https://github.com/user-attachments/assets/d34bf879-f8a1-4a10-b593-110bd694dadd" />
 
 ---
 
@@ -369,6 +375,7 @@ DeviceFileEvents
 | order by TimeGenerated asc
 
 ```
+<img width="1805" height="395" alt="image" src="https://github.com/user-attachments/assets/d9faafbd-e358-4d20-a362-2e31cc734896" />
 
 ---
 
@@ -386,6 +393,7 @@ DeviceFileEvents
 | order by TimeGenerated asc
 
 ```
+<img width="1782" height="370" alt="image" src="https://github.com/user-attachments/assets/65ff1f9e-5955-495d-8e81-0257e76fc7b4" />
 
 ---
 
@@ -400,3 +408,6 @@ DeviceNetworkEvents
 | where DeviceName == "main1-srvr"
 | project TimeGenerated, DeviceName RemoteIP, RemoteUrl
 | order by TimeGenerated asc
+
+```
+<img width="1140" height="240" alt="image" src="https://github.com/user-attachments/assets/0d9ff6f3-96eb-4973-b893-69f4bf1f6577" />
