@@ -204,7 +204,7 @@ Another remote session device has been associated withg higher level related act
 DeviceFileEvents
 | where DeviceName == "sys1-dept"
 | where FileName contains "Bonus"
-| project TimeGenerated, DeviceName InitiatingProcessAccountName, FileName, InitiatingProcessCommandLine, RemoteIP
+| project TimeGenerated, DeviceName, InitiatingProcessAccountName, FileName, InitiatingProcessCommandLine, RemoteIP
 | order by TimeGenerated asc
 
 ```
