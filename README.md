@@ -352,7 +352,7 @@ Employee scorecard has been accessed again on the second machine by remote sessi
 DeviceFileEvents
 | where DeviceName == "main1-srvr"
 | where FileName contains "Scorecard"
-| project TimeGenerated, FileName InitiatingProcessAccountName, RemoteIP, RemoteURL
+| project TimeGenerated, FileName, InitiatingProcessAccountName, RemoteIP, RemoteURL
 | order by TimeGenerated asc
 
 ```
@@ -406,7 +406,7 @@ The final outbound connection is associated with the remote IP of **54.83.21.156
 ```kql
 DeviceNetworkEvents
 | where DeviceName == "main1-srvr"
-| project TimeGenerated, DeviceName RemoteIP, RemoteUrl
+| project TimeGenerated, DeviceName, RemoteIP, RemoteUrl
 | order by TimeGenerated asc
 
 ```
