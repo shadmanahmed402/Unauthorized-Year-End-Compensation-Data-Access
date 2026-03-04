@@ -24,6 +24,7 @@ DeviceProcessEvents
 | order by FirstSeen asc
 
 ```
+<img width="937" height="217" alt="image" src="https://github.com/user-attachments/assets/5f6afe9a-9ede-47f7-8ec9-1f3c150ad37c" />
 
 ---
 
