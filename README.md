@@ -40,6 +40,7 @@ DeviceNetworkEvents
 | where InitiatingProcessAccountName == "5y51-d3p7"
 | project InitiatingProcessRemoteSessionIP, InitiatingProcessAccountName, RemotePort
 ```
+<img width="1390" height="360" alt="image" src="https://github.com/user-attachments/assets/7be2e453-501b-4d1a-a5f1-8dc166b04278" />
 
 ---
 
@@ -58,7 +59,7 @@ DeviceProcessEvents
 | where ProcessCommandLine has "Downloads"
 | project TimeGenerated, DeviceName, AccountName, ProcessCommandLine
 ```
-
+<img width="1802" height="335" alt="image" src="https://github.com/user-attachments/assets/3760c951-d0bf-4c99-b971-06d656d9d658" />
 
 ---
 
@@ -76,8 +77,9 @@ DeviceProcessEvents
 | where DeviceName == "sys1-dept"
 | where ProcessCommandLine has_any ("whoami", "hostname", "systeminfo", "query user", "tasklist","Get-Process", "$env:USERNAME", "$env:COMPUTERNAME")
 | sort by TimeGenerated asc
-| project TimeGenerated, DeviceName, AccountName, FileName, ProcessCommandLine,InitiatingProcessFileName
+| project TimeGenerated, DeviceName, AccountName, FileName, ProcessCommandLine, InitiatingProcessFileName
 ```
+<img width="1635" height="332" alt="image" src="https://github.com/user-attachments/assets/d73523cf-6dcd-4c14-a27f-65679912f11c" />
   
 ---
 
@@ -95,12 +97,13 @@ DeviceFileEvents
 | project TimeGenerated, FileName, FolderPath, InitiatingProcessFileName
 
 ```
+<img width="1835" height="270" alt="image" src="https://github.com/user-attachments/assets/248780b8-f34e-43d8-8b11-be1ab79bae94" />
   
 ---
 
 ### 6. Data Staging Activity Confirmation
 
-There has been some file crwation activity associated with archiving/exporting sensitive data. The ID of the initiating unique process was **2533274790396713.**
+There has been some file creation activity associated with archiving/exporting sensitive data. The ID of the initiating unique process was **2533274790396713.**
 
 **Query used:**
 
@@ -115,7 +118,8 @@ DeviceFileEvents
 | project TimeGenerated, DeviceName, FileName, FolderPath, InitiatingProcessFileName, InitiatingProcessCommandLine, InitiatingProcessUniqueId
 
 ```
-  
+ <img width="1832" height="435" alt="image" src="https://github.com/user-attachments/assets/1a0f6e88-fe81-421b-aa11-58b7cec1501a" />
+ 
 ---
 
 ### 7. Outbbound Connectivity Test
@@ -128,9 +132,10 @@ There was a Powershell-driven outbound network connection test found at **2025-1
 DeviceNetworkEvents
 | where DeviceName == "sys1-dept"
 | where InitiatingProcessCommandLine contains "powershell"
-| project TimeGenerated, RemoteIP, RemoteUrl, InitiatingCommandLine, DeviceName
+| project TimeGenerated, RemoteIP, RemoteUrl, InitiatingProcessCommandLine, DeviceName
 | order by TimeGenerated asc
 ```
+<img width="1292" height="485" alt="image" src="https://github.com/user-attachments/assets/15036851-fd02-4415-abba-17fd1a770018" />
 
 ---
 
